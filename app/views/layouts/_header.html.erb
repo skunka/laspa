@@ -1,0 +1,41 @@
+<header>
+  <nav class="round" style="float:left;">
+    <ul>
+      <li>
+        <% if user_signed_in? %>
+        <li>
+          <%= link_to_if(can?(:read, User), 'Vartotojai', users_path) %>
+        </li>
+        <li>
+          <%= link_to_if(can?(:read, Company), 'Kompanijos', companies_path) %>
+        </li>
+        <li>
+          <%= link_to_if(can?(:read, Event),'Planai', calendar_path)  %>
+        </li>
+        <li>
+          <%= link_to_if(can?(:read, Role),'Roles', roles_path)  %>
+        </li>
+      <% else %>
+      <% end %>
+      </li>
+    </ul>
+  </nav>
+  <nav class="round" style="float:right;">
+    <ul>
+      <li>
+        <% if user_signed_in? %>
+        <li>
+          <%= link_to('Redaguoti prisijungimą', edit_user_registration_path) %>
+        </li>
+        <li>
+          <%= link_to('Atsijungti', destroy_user_session_path) %>
+        </li>
+      <% else %>
+        <li>
+          <%= link_to('Prisijungti', new_user_session_path)  %>
+        </li>
+      <% end %>
+      </li>
+    </ul>
+  </nav>
+</header>
