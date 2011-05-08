@@ -1,14 +1,28 @@
 <!DOCTYPE html>
 <html>
-<head>
-  <title>Laspa</title>
-  <%= stylesheet_link_tag :all %>
-  <%= javascript_include_tag :defaults %>
-  <%= csrf_meta_tag %>
-</head>
-<body>
+  <head>
+    <title><%= h(yield(:title) || "LAPSA") %></title>
+    <%= stylesheet_link_tag :all %>
+    <%= stylesheet_link_tag 'blueprint/screen', :media => 'screen' %>
+    <%= stylesheet_link_tag 'blueprint/print',  :media => 'print' %>
+<!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
+    <%= stylesheet_link_tag 'custom', :media => 'screen' %>
+    <%= javascript_include_tag :defaults %>
+    <%= active_scaffold_includes %>
+    <%= csrf_meta_tag %>
+  </head>
+  <body>
+    <div class="container">
+      <%= render 'layouts/header' %>
+      <section class="round">
+        <% flash.each do |key, message| %>
+          <%= content_tag(:div, message, :class => "flash #{key}") %>
+        <% end %>
+        <%= yield %>
+      </section>
+      <%= render 'layouts/footer' %>
+    </div>
 
-<%= yield %>
 
-</body>
+  </body>
 </html>
