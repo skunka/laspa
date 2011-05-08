@@ -1,0 +1,1 @@
+This is sample application on devise+cancan+active_scaffold use
