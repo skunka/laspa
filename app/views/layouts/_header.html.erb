@@ -10,7 +10,7 @@
           <%= link_to_if(can?(:read, Company), 'Kompanijos', companies_path) %>
         </li>
         <li>
-          <%= link_to_if(can?(:read, Event),'Planai', calendar_path)  %>
+          <%= link_to_if(can?(:read, Event),'Planai', events_path)  %>
         </li>
         <li>
           <%= link_to_if(can?(:read, Role),'Roles', roles_path)  %>
