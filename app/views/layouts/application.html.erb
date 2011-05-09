@@ -8,7 +8,7 @@
 <!--[if lt IE 8]><%= stylesheet_link_tag 'blueprint/ie' %><![endif]-->
     <%= stylesheet_link_tag 'custom', 'style', 'fullcalendar', 'jquery-ui', 'dialog', :media => 'screen' %>
     <%= javascript_include_tag :defaults %>
-    <%=javascript_include_tag 'fullcalendar', 'gcal', 'application' %>
+    <%= javascript_include_tag 'jquery','jquery-ui','jrails', 'fullcalendar', 'gcal', 'application' %>
     <%= active_scaffold_includes %>
     <%= csrf_meta_tag %>
   </head>
@@ -26,4 +26,5 @@
 
 
   </body>
+
 </html>
