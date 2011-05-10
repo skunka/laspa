@@ -10,11 +10,18 @@ Laspa::Application.routes.draw do
 
   resources :companies do as_routes end
   resources :users do as_routes end
-  resources :events do as_routes end
+  
   resources :roles do as_routes end
   
   match '/contact', :to => 'pages#contact'
   match '/about',   :to => 'pages#about'
+  
+    resources :events do
+      member do
+        get 'new'
+	  end
+	end
+
   
   
 

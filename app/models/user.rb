@@ -9,5 +9,5 @@ class User < ActiveRecord::Base
 
   has_one :company
   has_many :event
-  has_one :role
+  belongs_to :role
 end
